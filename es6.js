@@ -185,7 +185,7 @@ class Hero {
 
 var hero = new Hero();
 hero.foo(); // You called foo
-hero.name; // Felicia
+hero.name; // Felicia	
 hero.alias; // Black Cat
 
 // Calling the actual class rather than the variable name
@@ -204,3 +204,66 @@ class Vigilante extends Hero {
 
 var vigilante = new Vigilante();
 vigilante.foo();
+
+
+// #4: Arrow Functions
+
+var foo = function(a, b) {
+	return a + b;
+};
+
+var foo = (a, b) => {
+	return a + b;
+};
+
+do.something(function (a, b) {
+	return a + b;
+});
+
+do.something((a, b) => { return a + b; });
+
+do.something((a + b) => a + b); // funcs with 1 liners get returned immediately, so no need for return
+
+[0, 1, 2].map(val => val++); // [1, 2, 3]
+
+// Lexical context binding 
+
+var module = {
+	age: 20,
+	foo: function() {
+		setTimeout(function () {
+			console.log(this.age); // Can't access this, so you have to bind it
+		}.bind(this), 100);
+	}
+};
+
+// Arrow functions automaticaly bind this
+
+var module = {
+	age: 20,
+	foo: function() {
+		setTimeout(() => {
+			console.log(this.age);
+		}, 100);
+	}
+};
+
+// jquery example
+
+$('something').with().jQuery(() => {
+	$(this)
+});
+
+// $5: Imports
+
+module.exports.foo = function() {
+
+};
+
+module.exports.bar = function() {
+
+};
+
+// Another file
+// This must be at the top of the code
+import { foo, bar } from 'myModule'
