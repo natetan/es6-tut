@@ -165,18 +165,42 @@ console.log(bar); // Works when mutating the object
 
 // #4: Classes
 
-class Parent() {
-	constructor() {
+class Hero {
+	name = 'Felicia';
+	alias = 'Black Cat';
 
+	constructor() {
+		console.log('New Hero was made');
 	}
 
 	foo() {
-
+		console.log('You called foo');
 	}
 
-	bar() {
+	// Can have static properties as well
+	static bar() {
+		console.log('You called bar');
+	}
+}
+
+var hero = new Hero();
+hero.foo(); // You called foo
+hero.name; // Felicia
+hero.alias; // Black Cat
+
+// Calling the actual class rather than the variable name
+Hero.bar(); // You called bar
+
+class Vigilante extends Hero {
+
+	constructor() {
+		super();
+	}
+
+	baz() {
 
 	}
 }
 
-var parent = new Parent();
+var vigilante = new Vigilante();
+vigilante.foo();
