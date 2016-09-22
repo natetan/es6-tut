@@ -118,3 +118,65 @@ var greet = `Hi, my name is ${name} and I like to ${activity}`;
 var greet = `Hi, my name is ${name} 
 			and I like to ${activity}`;
 
+
+// #3: Block Scoping
+
+var a = 1;
+
+function() {
+	var b = 2;
+}
+
+console.log(b); // not within scope
+
+/*-----------------------------------------*/
+
+// Start using let instead of var
+var a = 1;
+
+if (true) {
+	let b = 2;
+}
+
+console.log(b); // works
+
+// const (constant) works similarly
+
+const foo = 1;
+
+if (true) {
+	const bar = 2;
+}
+
+console.log(bar); // const is block scoping. Doesn't work
+
+if (true) {
+	const bar = { a: 1 };
+	bar.a = 2;
+}
+
+console.log(bar); // Works when mutating the object
+
+/*
+	let is like an indicator that something will get changed later on
+	The practice is to use const for everything, unless you want to change
+	a value, in which case, you use let
+*/
+
+// #4: Classes
+
+class Parent() {
+	constructor() {
+
+	}
+
+	foo() {
+
+	}
+
+	bar() {
+
+	}
+}
+
+var parent = new Parent();
