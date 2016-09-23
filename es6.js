@@ -254,7 +254,7 @@ $('something').with().jQuery(() => {
 	$(this)
 });
 
-// $5: Imports
+// $5: Imports / Exports
 
 module.exports.foo = function() {
 
@@ -265,5 +265,24 @@ module.exports.bar = function() {
 };
 
 // Another file
+
 // This must be at the top of the code
-import { foo, bar } from 'myModule'
+import { foo, bar } from 'myModule';
+
+// lodash example
+
+import { each, omit } from 'lodash';
+omit(obj, 'key');
+
+/*------------------------------------------*/	
+export var foo = 3;
+
+export function bar() {
+	console.log('bar');
+}
+
+// Another file
+
+import { foo as foolish, bar} from 'myModule';
+
+console.log(foolish); // 3
